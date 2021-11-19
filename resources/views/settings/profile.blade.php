@@ -43,12 +43,12 @@
                 </div>                
                 <div class="mb-3 col-md-12">
                     <label for="expertise" class="form-label font-weight-bold">Expertise</label>
-                    <input type="text" name="expertise" size="50" list="expertises" class="form-control" multiple>
+                    <input type="text" name="expertise" size="50" list="expertises" class="form-control" placeholder="Mohon maaf ini belum bisa diisi" multiple>
                     <datalist id="expertises">
-                        <option value="homer@simpson.com">
-                        <option value="barney@rubble.ws">
-                        <option value="fred@flinstone.cc">
-                        <option value="peter@griffin.org">
+                        <option value="A">
+                        <option value="B">
+                        <option value="C">
+                        <option value="D">
                     </datalist>                
                 </div>
                 <div class="mb-3 col-md-12">

@@ -50,7 +50,7 @@
         <p>{{ $user->award }}</p>
     </div>
     <div class="my-2">
-        <h1 class="font-weight-bolder">Jadwal Mentor</h1>
+        <h1 class="font-weight-bolder" id="jadwal-mentor">Jadwal Mentor</h1>
         <div>
             <!-- Calendly inline widget begin -->
             <div class="calendly-inline-widget" data-url="{{ $user->one_on_one_link }}" style="min-width:50%;height:680px;"></div>

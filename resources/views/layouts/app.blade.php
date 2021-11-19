@@ -24,12 +24,16 @@
             #nav-setting {
                 display: none;
             }
+
+            .nav-item-dekstop {
+                display: none;                
+            }
         }
 
         @media screen and (min-width: 768px) {
-            #nav-setting-mobile {
+            .nav-item-mobile {
                 display: none;
-            }
+            }            
         }
 
         footer {            
@@ -56,26 +60,26 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->                
-                    @guest           
+                    <!-- Left Side Of Navbar -->                                             
                     <ul class="navbar-nav mr-auto">                                                                     
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Home</a>                                
                         </li>    
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mentors') }}">Mentors</a>
-                        </li>
-                    </ul>
-                    @else
-                    <ul class="navbar-nav mr-auto" id="nav-setting-mobile">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('setting.profile') }}">Edit Profil</a>                                
+                        </li>                        
+                    @auth
+                        <li class="nav-item nav-item-dekstop">
+                            <a class="nav-link" href="{{ route('setting.profile') }}">Pengaturan</a>
                         </li>    
-                        <li class="nav-item">
+                        <li class="nav-item nav-item-mobile">
+                            <a class="nav-link" href="{{ route('setting.profile') }}">Edit Profil</a>
+                        </li>    
+                        <li class="nav-item nav-item-mobile">
                             <a class="nav-link" href="{{ route('setting.account') }}">Edit Akun</a>
                         </li>                                                                    
+                    @endauth
                     </ul>
-                    @endguest                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -86,15 +90,15 @@
                             </li>                                                      
                         @else
                             <li class="nav-item dropdown">                                
-                                    <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <button class="btn btn-primary text-light" style="width:80px">Log Out</button>
-                                    </a>                                    
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <button class="btn btn-primary text-light" style="width:80px">Log Out</button>
+                                </a>                                    
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>                                
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>                                
                             </li>
                         @endguest
                     </ul>
