@@ -14,11 +14,13 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/e5d58c1a7c.js" crossorigin="anonymous"></script>
     <style>
         @media screen and (max-width: 768px) {
             #nav-setting {
@@ -28,24 +30,39 @@
             .nav-item-dekstop {
                 display: none;                
             }
+
+            .img-home {
+                display: none;
+            }  
         }
 
         @media screen and (min-width: 768px) {
             .nav-item-mobile {
                 display: none;
-            }            
+            }
+            
+            .benefit-list {
+                padding-top: 2rem;
+            }
+
+            #jumbotron-heading {
+                font-size: 50px;
+            }
         }
 
         footer {            
             bottom:0;
             width:100%;
-            height:73px;
+            height:80px;
             background:#2A5F72;
             text-align: center;
-            color: white;
-            padding-top: 10px;    
-            font-weight: 500;                                      
-        }
+            color: white;            
+            font-weight: 500;                   
+        }    
+        
+        main {
+            min-height: 100vh;
+        }        
     </style>
 </head>
 <body>
@@ -63,20 +80,20 @@
                     <!-- Left Side Of Navbar -->                                             
                     <ul class="navbar-nav mr-auto">                                                                     
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>                                
+                            <a class="nav-link font-weight-bold" href="{{ route('home') }}">Home</a>                                
                         </li>    
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('mentors') }}">Mentors</a>
+                            <a class="nav-link font-weight-bold" href="{{ route('mentors') }}">Mentors</a>
                         </li>                        
                     @auth
                         <li class="nav-item nav-item-dekstop">
-                            <a class="nav-link" href="{{ route('setting.profile') }}">Pengaturan</a>
+                            <a class="nav-link font-weight-bold" href="{{ route('setting.profile') }}">Pengaturan</a>
                         </li>    
                         <li class="nav-item nav-item-mobile">
-                            <a class="nav-link" href="{{ route('setting.profile') }}">Edit Profil</a>
+                            <a class="nav-link font-weight-bold" href="{{ route('setting.profile') }}">Edit Profil</a>
                         </li>    
                         <li class="nav-item nav-item-mobile">
-                            <a class="nav-link" href="{{ route('setting.account') }}">Edit Akun</a>
+                            <a class="nav-link font-weight-bold" href="{{ route('setting.account') }}">Edit Akun</a>
                         </li>                                                                    
                     @endauth
                     </ul>
@@ -86,11 +103,11 @@
                         <!-- Authentication Links -->
                         @guest                            
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><button class="btn btn-primary text-light" style="width:80px">Log In</button></a>
+                                <a class="nav-link font-weight-bold" href="{{ route('login') }}"><button class="btn btn-primary text-light" style="width:80px">Log In</button></a>
                             </li>                                                      
                         @else
                             <li class="nav-item dropdown">                                
-                                <a class="nav-link" href="{{ route('logout') }}"
+                                <a class="nav-link font-weight-bold" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     <button class="btn btn-primary text-light" style="width:80px">Log Out</button>
@@ -106,11 +123,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        @if (Request::is('mentors/detail/*'))
+            <main>    
+        @else
+            <main class="py-4">
+        @endif                
             @yield('content')
         </main>        
-        <footer>
-            <p>QUARTER LIFE PROJECTS TEAM<br>Copyright © 2021 Quarter Life Projects</p>
+        <footer class="py-3">
+            <p><b>QUARTER LIFE PROJECTS TEAM</b><br>Copyright © 2021 Quarter Life Projects</p>
         </footer>
     </div>    
 </body>
