@@ -27,7 +27,7 @@
             <div class="card mx-auto m-3" style="width: 220px;height:250px">                            
                 <div class="card-body text-center">
                     @if(!is_null($user->profile_picture))
-                        <img src="{{ asset('storage/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:120px">                                                    
+                        <img src="{{ asset('img/uploads/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:120px">                                                    
                     @else
                         <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:120px">                        
                     @endif

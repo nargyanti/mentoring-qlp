@@ -123,7 +123,7 @@
             </div>
         </nav>
 
-        @if (Request::is('mentors/detail/*'))
+        @if (Request::is('mentors/*') || Request::is('home'))
             <main>    
         @else
             <main class="py-4">

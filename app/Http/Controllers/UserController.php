@@ -35,10 +35,14 @@ class UserController extends Controller
         $user->one_to_many_link = $request->get('one_to_many_link');        
 
         if ($request->file('profile_picture')) {
-            if ($user->profile_picture && file_exists(storage_path('app/public/' . $user->profile_picture))) {
-                Storage::delete('public/' . $user->profile_picture);
+            if ($user->profile_picture && file_exists(public_path('app/public/' . $user->profile_picture))) {
+                // Storage::disk('public')->delete('public/' . $user->profile_picture);
+                // $request->file('profile_picture')->delete(public_path('img/uploads'), $image_name);
             }
-            $image_name = $request->file('profile_picture')->store('uploads', 'public');
+            $image_name = time().'.'.$request->file('profile_picture')->extension();  
+            $request->file('profile_picture')->move(public_path('img/uploads'), $image_name);
+            // $image_name = $request->file('profile_picture')->store('uploads', 'public');
+            // $image_name = Storage::disk('public')->put('image.jpg', $request->file('image'));
             $user->profile_picture = $image_name;
         }
 

@@ -21,7 +21,7 @@
                     <label for="profile_picture" class="form-label font-weight-bold">Foto Profil</label>
                     <div>
                         @if(!is_null($user->profile_picture))
-                            <img src="{{ asset('storage/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:120px" class="mr-4">                                                    
+                            <img src="{{ asset('img/uploads/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:120px" class="mr-4">                                                    
                         @else
                             <img src="https://via.placeholder.com/120" alt="Foto profil" style="border-radius: 50%; width:120px" class="mr-4">                        
                         @endif

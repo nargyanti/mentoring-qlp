@@ -6,7 +6,7 @@
     <div class="container px-5 mx-auto row">        
         <div class="col-md-3">
             @if(!is_null($user->profile_picture))
-            <img src="{{ asset('storage/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:230px">
+            <img src="{{ asset('img/uploads/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:230px">
             @else
                 <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:230px">                        
             @endif        
