@@ -20,26 +20,26 @@
         <h1 class="font-weight-bolder">Kategori</h1>
         <p style="font-size: 18px">Pilih kategori sesuai dengan keluh kesah kamu</p>
         <div class="row my-4 ">
-            <div class="pillar col my-2">
-                <a href="#" class="text-dark">
+            <div class="pillar col my-2 category-item" onclick="">
+                <a href="{{ route('mentors') }}" target="_blank" class="text-dark">
                     <img src="{{ asset('img/personal-development.png') }}" alt="Foto profil" style="border-radius: 50%; width:150px">
                     <h2 class="h3 my-3 font-weight-bold">Personal Development</h2>
                 </a>
-            </div>
+            </div>            
             <div class="pillar col my-2">
-                <a href="#" class="text-dark">
-                    <img src="{{ asset('img/financial-literacy.png') }}" alt="Foto profil" style="border-radius: 50%; width:150px">
-                    <h2 class="h3 my-3 font-weight-bold">Financial Literacy</h2>
-                </a>
-            </div>
-            <div class="pillar col my-2">
-                <a href="#" class="text-dark">
+                <a href="{{ route('mentors') }}" target="_blank" class="text-dark">
                     <img src="{{ asset('img/career-literacy.png') }}" alt="Foto profil" style="border-radius: 50%; width:150px">
                     <h2 class="h3 my-3 font-weight-bold">Career Literacy</h2>
                 </a>
             </div>
             <div class="pillar col my-2">
-                <a href="#" class="text-dark">
+                <a href="{{ route('mentors') }}" target="_blank" class="text-dark">
+                    <img src="{{ asset('img/financial-literacy.png') }}" alt="Foto profil" style="border-radius: 50%; width:150px">
+                    <h2 class="h3 my-3 font-weight-bold">Financial Literacy</h2>
+                </a>
+            </div>
+            <div class="pillar col my-2">
+                <a href="{{ route('mentors') }}" target="_blank" class="text-dark">
                     <img src="{{ asset('img/social-relations.png') }}" alt="Foto profil" style="border-radius: 50%; width:150px">
                     <h2 class="h3 my-3 font-weight-bold">Social Relations</h2>
                 </a>

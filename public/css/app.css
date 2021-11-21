@@ -3900,10 +3900,12 @@ input[type=button].btn-block {
 }
 
 .nav-link {
+  color: #6c757d;
   display: block;
   padding: 0.5rem 1rem;
 }
 .nav-link:hover, .nav-link:focus {
+  color: #6c757d;
   text-decoration: none;
 }
 .nav-link.disabled {
@@ -3947,7 +3949,7 @@ input[type=button].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #3490dc;
+  background-color: #FC6B56;
 }
 
 .nav-fill > .nav-link,
@@ -4713,14 +4715,13 @@ a.badge:hover, a.badge:focus {
 }
 
 .badge-pill {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
+  padding: 0.7em 1em;  
   border-radius: 10rem;
 }
 
 .badge-primary {
   color: #fff;
-  background-color: #3490dc;
+  background-color: #FC6B56;    
 }
 a.badge-primary:hover, a.badge-primary:focus {
   color: #fff;

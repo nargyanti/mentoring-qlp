@@ -11,8 +11,15 @@
                 <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:230px">                        
             @endif        
         </div>
-        <div class="col-md-9 pl-5">            
-            <h1 class="display-4 font-weight-bolder" style="font-size: 50px">{{ $user->name }}</h1>
+        <div class="col-md-9 pl-5">
+            <span>
+                @foreach($expertises as $expertise) 
+                <div class="badge badge-pill badge-primary my-1">
+                    {{ $expertise->category->expertise }}
+                </div>
+                @endforeach                
+            </span>
+            <h1 class="display-4 font-weight-bolder" style="font-size: 50px">{{ $user->name }}</h1>            
             <a href="mailto:{{ $user->email }}" target="_blank"><img src="{{ asset('img/email.png') }}" style="border-radius: 50%; width:40px"></a>
             <a href="{{ $user->linkedin }}" target="_blank"><img src="{{ asset('img/linkedin.png') }}" style="border-radius: 50%; width:40px"></a>            
             <table class="table table-borderless my-4">
@@ -35,19 +42,19 @@
 <div class="container px-4 text-justify">        
     <div class="my-4">
         <h1 class="font-weight-bolder">Profil</h1>
-        <p>{{ $user->profile }}</p>
+        {!! $user->profile !!}
     </div>
     <div class="my-4">
         <h1 class="font-weight-bolder">Background Pendidikan</h1>
-        <p>{{ $user->education_background }}</p>
+        {!! $user->education_background !!}
     </div>
     <div class="my-4">
         <h1 class="font-weight-bolder">Background Pekerjaan</h1>
-        <p>{{ $user->job_background }}</p>
+        {!! $user->job_background !!}
     </div>
     <div class="my-4">
         <h1 class="font-weight-bolder">Penghargaan</h1>
-        <p>{{ $user->award }}</p>
+        {!! $user->award !!}
     </div>
     <div class="my-4">
         <h1 class="font-weight-bolder mb-3" id="jadwal-mentor">Jadwal Mentor</h1>

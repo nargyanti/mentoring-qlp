@@ -12,6 +12,7 @@
         </div>   
         <div class="col-md-9 px-4">
             @include('layouts.message')
+            @include('layouts.error')
             <h1 class="h2"><b>Edit Profil</b></h1>
             <hr class="my-3">
             <form action="{{ route('user.updateProfile', $user->id) }}" method="post" class="row" enctype="multipart/form-data">
@@ -23,7 +24,7 @@
                         @if(!is_null($user->profile_picture))
                             <img src="{{ asset('img/uploads/'.$user->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:120px" class="mr-4">                                                    
                         @else
-                            <img src="https://via.placeholder.com/120" alt="Foto profil" style="border-radius: 50%; width:120px" class="mr-4">                        
+                            <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:120px" class="mr-4">                        
                         @endif
                         <input type="file" id="profile_picture" style="display: none;" name="profile_picture"/>
                         <input type="button" class="btn btn-primary" value="Ubah Foto Profil" onclick="document.getElementById('profile_picture').click();"/>
@@ -41,25 +42,63 @@
                     <label for="linkedin" class="form-label font-weight-bold">Akun LinkedIn</label>
                     <input class="form-control" type="text" name="linkedin" id="linkedin" value="{{ $user->linkedin }}">
                 </div>                
-                {{-- <div class="mb-3 col-md-12">                    
-                    <label for="expertise" class="form-label font-weight-bold">Expertise</label>                          
-                    <select class="form-select" id="expertise" name="expertises[]" multiple data-allow-new="true" data-allow-clear="true">
-                        <option disabled hidden value="">Choose a tag...</option>
-                        <option value="1" selected="selected">Apple</option>
-                        <option value="2">Banana</option>
-                        <option value="3">Orange</option>
-                        <option value="3">Orange</option>
-                        <option value="3">Orange</option>
-                        <option value="3">Orange</option>
-                        <option value="3">Orange</option>
-                        @foreach ($products as $key => $value)
-                        <option value="{{ $key }}" {{ ( $key == $selectedID) ? 'selected' : '' }}> 
-                            {{ $value }} 
-                        </option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback">Please select a valid tag.</div>
-                </div> --}}
+                <div class="mb-3 col-md-12">     
+                    <label for="expertise" class="form-label font-weight-bold">Expertise</label>
+                    <table class="table table-bordered table-responsive-md">
+                        <thead>
+                            <tr class="text-center">                            
+                                <th scope="col" style="width: 25%">Personal Development</th>
+                                <th scope="col" style="width: 25%">Career Literacy</th>
+                                <th scope="col" style="width: 25%">Financial Literacy</th>
+                                <th scope="col" style="width: 25%">Social Relations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>                                
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->pillar == "Personal Development")                                                                                                                                       
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                            </div>                                    
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->pillar == "Career Literacy")                                                                                                                                       
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                            </div>                                    
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->pillar == "Financial Literacy")                                                                                                                                       
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                            </div>                                    
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->pillar == "Social Relations")                                                                                                                                       
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                            </div>                                    
+                                        @endif
+                                    @endforeach
+                                </td>                            
+                            </tr>                          
+                        </tbody>
+                    </table>                    
+                </div>
                 <div class="mb-3 col-md-12">
                     <label for="session_hour" class="form-label font-weight-bold">Session Hour(s)</label>
                     <input class="form-control" type="text" name="session_hour" id="session_hour" value="{{ $user->session_hour }}">
@@ -95,12 +134,18 @@
                 <div class="mb-3 d-flex justify-content-end col-md-12">                
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>                
-            </form>
+            </form>     
         </div>     
     </div>
 </div>
 <script type="module">
     import Tags from "{{ asset('js/tags.min.js') }}";
     Tags.init();
+</script>
+<script type="text/javascript">
+    $("#profile").qeditor({});
+    $("#job_background").qeditor({});
+    $("#education_background").qeditor({});
+    $("#award").qeditor({});
 </script>
 @endsection

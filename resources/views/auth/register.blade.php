@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" style="width:80px">
+                            <button type="submit" class="btn btn-primary" style="width:100px">
                                 {{ __('Register') }}
                             </button>           
                         </div>                 
