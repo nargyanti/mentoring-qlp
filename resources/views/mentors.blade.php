@@ -33,7 +33,7 @@
                 <div class="row my-5">                
                     <h2 class="font-weight-bolder text-center col-12">{{ $category->expertise }}</h2>
                     @foreach ($expertises as $expertise)
-                        @if($expertise->category->expertise == $category->expertise)
+                        @if($expertise->category_id == $category->id)
                         <div class="col">
                             <a href="{{ route('mentorDetail', $expertise->user->id) }}" target="_blank" class="text-dark">
                             <div class="card mx-auto m-3" style="width: 220px;height:250px">                            
@@ -43,7 +43,7 @@
                                     @else
                                         <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:120px">                        
                                     @endif
-                                <p class="card-text h5 mt-3"><b>{{ $expertise->user->name }}</b></p>
+                                    <p class="card-text h5 mt-3"><b>{{ $expertise->user->name }}</b></p>
                                 </div>
                             </div>
                             </a>
@@ -60,7 +60,7 @@
                 <div class="row my-5">                
                     <h2 class="font-weight-bolder text-center col-12">{{ $category->expertise }}</h2>
                     @foreach ($expertises as $expertise)
-                        @if($expertise->category->expertise == $category->expertise)
+                        @if($expertise->category_id == $category->id)
                         <div class="col">
                             <a href="{{ route('mentorDetail', $expertise->user->id) }}" target="_blank" class="text-dark">
                             <div class="card mx-auto m-3" style="width: 220px;height:250px">                            
@@ -87,7 +87,7 @@
                 <div class="row my-5">                
                     <h2 class="font-weight-bolder text-center col-12">{{ $category->expertise }}</h2>
                     @foreach ($expertises as $expertise)
-                        @if($expertise->category->expertise == $category->expertise)
+                        @if($expertise->category_id == $category->id)
                         <div class="col">
                             <a href="{{ route('mentorDetail', $expertise->user->id) }}" target="_blank" class="text-dark">
                             <div class="card mx-auto m-3" style="width: 220px;height:250px">                            
@@ -114,7 +114,7 @@
                 <div class="row my-5">                
                     <h2 class="font-weight-bolder text-center col-12">{{ $category->expertise }}</h2>
                     @foreach ($expertises as $expertise)
-                        @if($expertise->category->expertise == $category->expertise)
+                        @if($expertise->category_id == $category->id)
                         <div class="col">
                             <a href="{{ route('mentorDetail', $expertise->user->id) }}" target="_blank" class="text-dark">
                             <div class="card mx-auto m-3" style="width: 220px;height:250px">                            

@@ -36,7 +36,7 @@
 
             .img-home {
                 display: none;
-            }  
+            }                         
         }
 
         @media screen and (min-width: 768px) {
@@ -50,6 +50,21 @@
 
             #jumbotron-heading {
                 font-size: 50px;
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            #login-image {
+                display: none;
+            }
+            
+            .badge-expertise {
+                display: none;
+            }
+            
+            .mentor-detail-jumbotron-about {
+                text-align: center;
+                margin: 1rem 0;
             }
         }
 
@@ -88,10 +103,7 @@
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold" href="{{ route('mentors') }}">Mentors</a>
                         </li>                        
-                    @auth
-                        <li class="nav-item nav-item-dekstop">
-                            <a class="nav-link font-weight-bold" href="{{ route('setting.profile') }}">Pengaturan</a>
-                        </li>    
+                    @auth      
                         <li class="nav-item nav-item-mobile">
                             <a class="nav-link font-weight-bold" href="{{ route('setting.profile') }}">Edit Profil</a>
                         </li>    
@@ -109,7 +121,7 @@
                                 <a class="nav-link font-weight-bold" href="{{ route('login') }}"><button class="btn btn-primary text-light" style="width:80px">Log In</button></a>
                             </li>                                                      
                         @else
-                            <li class="nav-item dropdown">                                
+                            <li class="nav-item nav-item-mobile">                                
                                 <a class="nav-link font-weight-bold" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -120,13 +132,37 @@
                                     @csrf
                                 </form>                                
                             </li>
+
+                            <li class="nav-item nav-item-dekstop dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if(!is_null(Auth::user()->profile_picture))
+                                        <img src="{{ asset('img/uploads/'.Auth::user()->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:40px">
+                                    @else
+                                        <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:40px">                        
+                                    @endif
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('mentorDetail', Auth::user()->id) }}">Profil</a>
+                                    <a class="dropdown-item" href="{{ route('setting.profile') }}">Pengaturan</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
 
-        @if (Request::is('mentors/*') || Request::is('home'))
+        @if (Request::is('mentors/*') || Request::is('home') || Request::is('login') || Request::is('register'))
             <main>    
         @else
             <main class="py-4">

@@ -59,7 +59,7 @@
                                     @foreach ($categories as $category)
                                         @if ($category->pillar == "Personal Development")                                                                                                                                       
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
                                                 <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
@@ -69,7 +69,7 @@
                                     @foreach ($categories as $category)
                                         @if ($category->pillar == "Career Literacy")                                                                                                                                       
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
                                                 <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
@@ -79,7 +79,7 @@
                                     @foreach ($categories as $category)
                                         @if ($category->pillar == "Financial Literacy")                                                                                                                                       
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
                                                 <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
@@ -89,7 +89,7 @@
                                     @foreach ($categories as $category)
                                         @if ($category->pillar == "Social Relations")                                                                                                                                       
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category->expertise == $category->expertise ? 'checked' : '' }} @endforeach>
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
                                                 <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
