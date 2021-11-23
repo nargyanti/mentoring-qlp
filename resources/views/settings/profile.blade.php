@@ -33,24 +33,33 @@
                 <div class="mb-3 col-md-12">
                     <label for="name" class="form-label font-weight-bold">Nama</label>
                     <input class="form-control" type="text" name="name" id="name" value="{{ $user->name }}" required>
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Isi dengan nama lengkap (maksimal 3 kata) beserta gelar</small>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="email" class="form-label font-weight-bold">E-mail</label>
                     <input class="form-control" type="email" name="email" id="email" value="{{ $user->email }}" required>                    
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Pastikan bahwa email kamu bisa dihubungi oleh mentee</small>
+                </div>
+                <div class="mb-3 col-md-12">
+                    <label for="description" class="form-label font-weight-bold">Deskripsi Singkat</label>
+                    <input class="form-control" type="text" name="description" id="description" value="{{ $user->description }}">
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Deskripsi singkat akan ditampilkan di halaman mentors</small>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="linkedin" class="form-label font-weight-bold">Akun LinkedIn</label>
                     <input class="form-control" type="text" name="linkedin" id="linkedin" value="{{ $user->linkedin }}">
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Contoh: https://www.linkedin.com/company/quarter-life-projects/</small>
                 </div>                
                 <div class="mb-3 col-md-12">     
                     <label for="expertise" class="form-label font-weight-bold">Expertise</label>
                     <table class="table table-bordered table-responsive-md">
                         <thead>
                             <tr class="text-center">                            
-                                <th scope="col" style="width: 25%">Personal Development</th>
-                                <th scope="col" style="width: 25%">Career Literacy</th>
-                                <th scope="col" style="width: 25%">Financial Literacy</th>
-                                <th scope="col" style="width: 25%">Social Relations</th>
+                                <th scope="col" style="width: 20%">Personal Development</th>
+                                <th scope="col" style="width: 20%">Career Preparation</th>
+                                <th scope="col" style="width: 20%">Profession Insight</th>
+                                <th scope="col" style="width: 20%">Social Relations</th>
+                                <th scope="col" style="width: 20%">Financial Literacy</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,17 +69,37 @@
                                         @if ($category->pillar == "Personal Development")                                                                                                                                       
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
-                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                                <label class="form-check-label" for="expertise{{$category->id}}">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
                                     @endforeach
                                 </td>
                                 <td>
                                     @foreach ($categories as $category)
-                                        @if ($category->pillar == "Career Literacy")                                                                                                                                       
+                                        @if ($category->pillar == "Career Preparation")                                                                                                                                       
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
-                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                                <label class="form-check-label" for="expertise{{$category->id}}">{{ $category->expertise }}</label>
+                                            </div>                                    
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->pillar == "Profession Insight")                                                                                                                                       
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
+                                                <label class="form-check-label" for="expertise{{$category->id}}">{{ $category->expertise }}</label>
+                                            </div>                                    
+                                        @endif
+                                    @endforeach
+                                </td>                                
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->pillar == "Social Relations")                                                                                                                                       
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
+                                                <label class="form-check-label" for="expertise{{$category->id}}">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
                                     @endforeach
@@ -80,57 +109,50 @@
                                         @if ($category->pillar == "Financial Literacy")                                                                                                                                       
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
-                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
-                                            </div>                                    
-                                        @endif
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach ($categories as $category)
-                                        @if ($category->pillar == "Social Relations")                                                                                                                                       
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="expertise{{ $category->id }}" name="expertises[]" @foreach ($expertises as $expertise) {{ $expertise->category_id == $category->id ? 'checked' : '' }} @endforeach>
-                                                <label class="form-check-label" for="$category->id">{{ $category->expertise }}</label>
+                                                <label class="form-check-label" for="expertise{{$category->id}}">{{ $category->expertise }}</label>
                                             </div>                                    
                                         @endif
                                     @endforeach
                                 </td>                            
                             </tr>                          
                         </tbody>
-                    </table>                    
+                    </table>
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Isi expertise sesuai dengan pengumuman kelulusan</small>                    
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="session_hour" class="form-label font-weight-bold">Session Hour(s)</label>
                     <input class="form-control" type="text" name="session_hour" id="session_hour" value="{{ $user->session_hour }}">
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Waktu yang dibutuhkan setiap melakukan satu sesi</small>                    
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="total_client" class="form-label font-weight-bold">Total Client(s)</label>
-                    <input class="form-control" type="number" name="total_client" min="0" id="total_client" value="{{ $user->total_client }}">
+                    <input class="form-control" type="number" name="total_client" min="0" id="total_client" value="{{ $user->total_client }}">                    
                 </div>                
                 <div class="mb-3 col-md-12">
-                    <label for="profile" class="form-label font-weight-bold">Deskripsi Diri / Profil</label>
-                    <textarea name="profile" id="profile" cols="30" rows="4" class="form-control">{{ $user->profile }}</textarea>
+                    <label for="profile" class="form-label font-weight-bold">Profil Lengkap</label>
+                    <textarea name="profile" id="profile" cols="30" rows="4" class="form-control">{{ $user->profile }}</textarea>                                                      
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="education_background" class="form-label font-weight-bold">Background Pendidikan</label>
-                    <textarea name="education_background" id="education_background" cols="30" rows="4" class="form-control">{{ $user->education_background }}</textarea>
+                    <textarea name="education_background" id="education_background" cols="30" rows="4" class="form-control">{{ $user->education_background }}</textarea>                    
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="job_background" class="form-label font-weight-bold">Background Pekerjaan</label>
-                    <textarea name="job_background" id="job_background" cols="30" rows="4" class="form-control">{{ $user->job_background }}</textarea>
+                    <textarea name="job_background" id="job_background" cols="30" rows="4" class="form-control">{{ $user->job_background }}</textarea>                    
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="award" class="form-label font-weight-bold">Penghargaan</label>
-                    <textarea name="award" id="award" cols="30" rows="4" class="form-control">{{ $user->award }}</textarea>
+                    <textarea name="award" id="award" cols="30" rows="4" class="form-control">{{ $user->award }}</textarea>                    
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="one_on_one_link" class="form-label font-weight-bold">Link Jadwal Consulting One on One (Calendly)</label>
                     <input class="form-control" type="text" name="one_on_one_link" id="one_on_one_link" value="{{ $user->one_on_one_link }}">
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Contoh: https://calendly.com/quarterlifeprojects/consulting-mentor</small>
                 </div>
-                <div class="mb-3 col-md-12">
+                {{-- <div class="mb-3 col-md-12">
                     <label for="one_to_many_link" class="form-label font-weight-bold">Link Jadwal Consulting Group (Calendly)</label>
                     <input class="form-control" type="text" name="one_to_many_link" id="one_to_many_link" value="{{ $user->one_to_many_link }}">
-                </div>                
+                </div>                 --}}
                 <div class="mb-3 d-flex justify-content-end col-md-12">                
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>                

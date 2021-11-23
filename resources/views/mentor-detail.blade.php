@@ -43,25 +43,24 @@
 
 <div class="container px-4 text-justify">        
     <div class="my-4">
-        <h1 class="font-weight-bolder">Profil</h1>
+        <h2 class="font-weight-bolder h2">Profil</h2>
         {!! $user->profile !!}
     </div>
     <div class="my-4">
-        <h1 class="font-weight-bolder">Background Pendidikan</h1>
+        <h2 class="font-weight-bolder">Background Pendidikan</h2>
         {!! $user->education_background !!}
     </div>
     <div class="my-4">
-        <h1 class="font-weight-bolder">Background Pekerjaan</h1>
+        <h2 class="font-weight-bolder">Background Pekerjaan</h2>
         {!! $user->job_background !!}
     </div>
     <div class="my-4">
-        <h1 class="font-weight-bolder">Penghargaan</h1>
+        <h2 class="font-weight-bolder">Penghargaan</h2>
         {!! $user->award !!}
     </div>
     <div class="my-4">
-        <h1 class="font-weight-bolder mb-3" id="jadwal-mentor">Jadwal Mentor</h1>
-        @if(!is_null($user->one_on_one_link))
-            <h2>Consulting One-On-One</h2>
+        <h2 class="font-weight-bolder mb-3" id="jadwal-mentor">Jadwal Mentor</h2>
+        @if(!is_null($user->one_on_one_link))            
             <div>
                 <!-- Calendly inline widget begin -->
                 <div class="calendly-inline-widget" data-url="{{ $user->one_on_one_link }}?primary_color=fc6b56" style="min-width:50%;height:680px;"></div>
@@ -69,14 +68,14 @@
             </div>
         @endif
         
-        @if(!is_null($user->one_to_many_link))
+        {{-- @if(!is_null($user->one_to_many_link))
             <h2>Consulting Group</h2>
             <div>
                 <!-- Calendly inline widget begin -->
                 <div class="calendly-inline-widget" data-url="{{ $user->one_to_many_link }}?primary_color=fc6b56" style="min-width:50%;height:680px;"></div>
                 <!-- Calendly inline widget end -->
             </div>
-        @endif        
+        @endif         --}}
     </div>
 </div>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>

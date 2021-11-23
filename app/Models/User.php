@@ -27,6 +27,7 @@ class User extends Authenticatable
         'session_hour',
         'total_client',
         'rating',
+        'description',
         'profile',
         'education_background',
         'job_background',

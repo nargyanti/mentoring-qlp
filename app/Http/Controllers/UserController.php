@@ -30,6 +30,7 @@ class UserController extends Controller
         $user->session_hour = $request->get('session_hour');
         $user->total_client = $request->get('total_client');
         $user->rating = $request->get('rating');
+        $user->description = $request->get('description');
         $user->profile = $request->get('profile');
         $user->education_background = $request->get('education_background');
         $user->job_background = $request->get('job_background');
@@ -87,5 +88,11 @@ class UserController extends Controller
             return redirect()->route('setting.account')
                 ->with('failed', 'Password baru yang kamu masukan tidak sama dengan konfirmasi password');
         }
+    }
+
+    public function deleteAccount($id) {
+        $user = User::findOrFail($id);               
+        $user->delete();
+        return redirect()->route('home');
     }
 }

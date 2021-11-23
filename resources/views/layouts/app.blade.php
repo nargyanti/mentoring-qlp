@@ -25,6 +25,45 @@
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
     <style>
+        @media screen and (max-width: 450px) {
+            .mentor-card img {
+                width: 80px;                
+            } 
+
+            .mentor-card .card-text {
+                padding-left: 0.8rem;                
+            }   
+            
+            .mentor-description {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 451px) {
+            .mentor-card img {
+                width: 120px;
+                margin-bottom: 0.3rem;                
+            }                                           
+        }
+
+        @media screen and (max-width: 576px) {           
+            .mentor-card .card-text {
+                padding-left: 0.8rem;                
+            }                 
+            
+            .mentor-card .card-body {
+                display: grid;                
+                grid-template-columns: 0.5fr 1fr;                
+            }
+        }
+
+        @media screen and (min-width: 578px) {           
+            .mentor-card {
+                width: 250px;
+                height: 300px;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             #nav-setting {
                 display: none;
@@ -32,11 +71,7 @@
 
             .nav-item-dekstop {
                 display: none;                
-            }
-
-            .img-home {
-                display: none;
-            }                         
+            }                                
         }
 
         @media screen and (min-width: 768px) {
@@ -52,6 +87,13 @@
                 font-size: 50px;
             }
         }
+
+        @media screen and (max-width: 992px) {
+            .img-home {
+                display: none;
+            }  
+        }
+
 
         @media screen and (max-width: 1200px) {
             #login-image {

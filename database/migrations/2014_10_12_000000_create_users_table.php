@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('linkedin')->nullable();
             $table->integer('total_client')->nullable();
             $table->string('rating')->nullable();
+            $table->string('description')->nullable();
             $table->text('profile')->nullable();
             $table->text('education_background')->nullable();
             $table->text('job_background')->nullable();

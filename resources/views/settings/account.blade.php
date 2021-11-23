@@ -24,12 +24,39 @@
                 <div class="mb-3 col-md-12">
                     <label for="confirmation_password" class="form-label font-weight-bold">Konfirmasi Password</label>
                     <input class="form-control" type="password" name="confirmation_password" id="confirmation_password" required>
-                </div>                   
+                </div>
+                <div class="mb-3 col-md-12">
+                    <a href="" class="text-danger font-weight-bolder" data-toggle="modal" data-target="#deleteAccountModal">Hapus Akun</a>
+                </div>            
                 <div class="mb-3 d-flex justify-content-end col-md-12">                
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>                
             </form>
         </div>     
+    </div>
+</div>
+
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteAccountModalLabel">Hapus Akun</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apakah kamu yakin ingin menghapus ini? 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <form action="{{ route('user.deleteAccount', $user->id) }}" method="POST">
+            @csrf
+            @method('DELETE')                            
+                <button type="submit" class="btn btn-danger">Hapus</button>
+            </form>
+        </div>
+      </div>
     </div>
 </div>
 @endsection

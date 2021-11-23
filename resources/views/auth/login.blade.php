@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row mx-auto">                
-    <div class="col-xl-6 px-5 py-5">                        
+    <div class="col-xl-6 px-5 py-4">                        
         <h1 class="font-weight-bolder mb-4">Login</h1>
         <form method="POST" action="{{ route('login') }}" class="my-2">
             @csrf            
@@ -30,7 +30,7 @@
                 <p>Belum punya akun? <a href="{{ route('register') }}">Daftar sekarang!</a></p>                
             </div>
 
-            <div class="form-group my-5">                
+            <div class="form-group my-4">                
                 <button type="submit" class="btn btn-primary w-100">
                     {{ __('Log In') }}
                 </button>                                              

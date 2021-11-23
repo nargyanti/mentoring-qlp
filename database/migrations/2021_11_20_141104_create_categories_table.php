@@ -15,8 +15,9 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->enum('pillar', ['Personal Development', 'Financial Literacy', 'Career Literacy', 'Social Relations']);
+            $table->enum('pillar', ['Personal Development', 'Career Preparation', 'Profession Insight', 'Social Relations', 'Financial Literacy']);
             $table->string('expertise');
+            $table->string('description');
             $table->timestamps();
         });
     }

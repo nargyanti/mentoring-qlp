@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'settings'], function () {
     Route::get('/account', [PageController::class, 'settingAccount'])->name('setting.account');
     Route::put('/profile/{id}/edit', [UserController::class, 'updateProfile'])->name('user.updateProfile');
     Route::put('/account/{id}/edit', [UserController::class, 'updateAccount'])->name('user.updateAccount');
+    Route::delete('/account/{id}/delete', [UserController::class, 'deleteAccount'])->name('user.deleteAccount');
 });
 
 Route::group(['prefix' => 'mentors'], function () {
