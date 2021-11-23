@@ -19,7 +19,7 @@
                     </div>
                 @endforeach            
             </div>
-            <h1 class="display-4 font-weight-bolder" style="font-size: 50px">{{ $user->name }}</h1>            
+            <h1 class="display-4 font-weight-bolder" style="font-size: 40px">{{ $user->name }}</h1>            
             <a href="mailto:{{ $user->email }}" target="_blank"><img src="{{ asset('img/email.png') }}" style="border-radius: 50%; width:40px"></a>
             <a href="{{ $user->linkedin }}" target="_blank"><img src="{{ asset('img/linkedin.png') }}" style="border-radius: 50%; width:40px"></a>            
             <div class="row my-4 mx-auto">
