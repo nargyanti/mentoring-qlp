@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3" id="nav-setting">            
-            <h1 class="h2 text-center">Pengaturan</h1>
+            <h1 class="h2 text-center">Pengaturan</h1>            
             <div class="list-group-flush list-group text-center my-3">
                 <a href="{{ route('setting.profile') }}" class="list-group-item list-group-item-action" style="border-radius: 30px">Profil</a>
                 <a href="{{ route('setting.account') }}" class="list-group-item list-group-item-action active" style="border-radius: 30px">Akun</a>
@@ -13,6 +13,7 @@
         <div class="col-md-9 px-4">
             @include('layouts.message')
             <h1 class="h2"><b>Ubah Password</b></h1>
+            <p class="text-muted">Untuk panduan pengaturan akun klik <a href="{{ asset('docs/Panduan Penggunaan Website Mentoring QLP (1.0) - Mentor.pdf') }}" target="_blank">di sini</a></p>
             <hr class="my-3">
             <form action="{{ route('user.updateAccount', $user->id) }}" method="post" class="row">
                 @csrf

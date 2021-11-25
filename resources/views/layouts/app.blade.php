@@ -59,8 +59,8 @@
 
         @media screen and (min-width: 577px) {           
             .mentor-card {
-                width: 250px;
-                height: 300px;
+                width: 230px;
+                height: 320px;
             }
 
             .nav-pill-kategori-title {
@@ -193,7 +193,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('mentorDetail', Auth::user()->id) }}">Profil</a>
-                                    <a class="dropdown-item" href="{{ route('setting.profile') }}">Pengaturan</a>
+                                    <a class="dropdown-item" href="{{ route('setting.profile') }}">Pengaturan</a>                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
