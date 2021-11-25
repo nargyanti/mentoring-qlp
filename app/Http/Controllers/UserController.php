@@ -18,7 +18,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',            
-            'profile_picture' => 'mimes:jpg,png,jpeg|max:5120',            
+            'profile_picture' => 'image|mimes:jpg,png,jpeg|max:1536',            
             'description' => 'max:255',            
         ]);        
         

@@ -127,7 +127,7 @@
                 <div class="mb-3 col-md-12">
                     <label for="total_client" class="form-label font-weight-bold">Total Session(s)</label>
                     <input class="form-control" type="number" name="total_client" min="0" id="total_client" value="{{ $user->total_client }}">                    
-                    <small id="uniqueCodeHelp" class="form-text text-muted">Berapa mentee yang sudah ditangani oleh mentor di Quarter Life Projects</small>                    
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Jumlah mentee yang sudah ditangani oleh mentor di Quarter Life Projects</small>                    
                 </div>                
                 <div class="mb-3 col-md-12">
                     <label for="profile" class="form-label font-weight-bold">Profil Lengkap</label>

@@ -70,6 +70,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'rating' => '-',
+            'session_hour' => '0',
+            'total_client' => '0',
         ]);          
     }
 }

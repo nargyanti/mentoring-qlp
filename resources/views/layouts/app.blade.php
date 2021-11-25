@@ -150,7 +150,7 @@
                             <a class="nav-link font-weight-bold" href="{{ route('mentors') }}">Mentors</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="{{ route('guide') }}">Guide</a>
+                            <a class="nav-link font-weight-bold" href="{{ route('guide') }}">Guides</a>
                         </li>                        
                     @auth      
                         <li class="nav-item nav-item-mobile">
