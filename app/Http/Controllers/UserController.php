@@ -19,6 +19,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',            
             'profile_picture' => 'mimes:jpg,png,jpeg|max:5120',            
+            'description' => 'max:255',            
         ]);        
         
         // dd($request->input('expertises'));

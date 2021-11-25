@@ -33,6 +33,11 @@ class PageController extends Controller
         return view('mentors', ['expertises' => $expertises, 'categories' => $categories]);        
     }
 
+    public function guide()
+    {                
+        return view('guide');        
+    }
+
     public function mentorDetail($id)
     {
         $user = User::find($id);

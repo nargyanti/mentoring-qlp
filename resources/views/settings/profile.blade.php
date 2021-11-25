@@ -43,7 +43,7 @@
                 <div class="mb-3 col-md-12">
                     <label for="description" class="form-label font-weight-bold">Deskripsi Singkat</label>
                     <input class="form-control" type="text" name="description" id="description" value="{{ $user->description }}">
-                    <small id="uniqueCodeHelp" class="form-text text-muted">Deskripsi singkat akan ditampilkan di halaman mentors</small>
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Deskripsi singkat akan ditampilkan di halaman mentors. Isi dengan 3-6 kata.</small>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="linkedin" class="form-label font-weight-bold">Akun LinkedIn</label>
@@ -120,13 +120,14 @@
                     <small id="uniqueCodeHelp" class="form-text text-muted">Isi expertise sesuai dengan pengumuman kelulusan</small>                    
                 </div>
                 <div class="mb-3 col-md-12">
-                    <label for="session_hour" class="form-label font-weight-bold">Session Hour(s)</label>
+                    <label for="session_hour" class="form-label font-weight-bold">Mentoring Hour(s)</label>
                     <input class="form-control" type="text" name="session_hour" id="session_hour" value="{{ $user->session_hour }}">
-                    <small id="uniqueCodeHelp" class="form-text text-muted">Waktu yang dibutuhkan setiap melakukan satu sesi</small>                    
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Waktu mentoring yang sudah mentor keluarkan selama ini di Quarter Life Projects</small>                    
                 </div>
                 <div class="mb-3 col-md-12">
-                    <label for="total_client" class="form-label font-weight-bold">Total Client(s)</label>
+                    <label for="total_client" class="form-label font-weight-bold">Total Session(s)</label>
                     <input class="form-control" type="number" name="total_client" min="0" id="total_client" value="{{ $user->total_client }}">                    
+                    <small id="uniqueCodeHelp" class="form-text text-muted">Berapa mentee yang sudah ditangani oleh mentor di Quarter Life Projects</small>                    
                 </div>                
                 <div class="mb-3 col-md-12">
                     <label for="profile" class="form-label font-weight-bold">Profil Lengkap</label>

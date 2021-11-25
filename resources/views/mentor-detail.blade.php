@@ -24,11 +24,11 @@
             <a href="{{ $user->linkedin }}" target="_blank"><img src="{{ asset('img/linkedin.png') }}" style="border-radius: 50%; width:40px"></a>            
             <div class="row my-4 mx-auto">
                 <div class="col-md">
-                    <h2 class="text-secondary" style="font-size: 18px;">Session Hour(s)</h2>
+                    <h2 class="text-secondary" style="font-size: 18px;">Mentoring Hour(s)</h2>
                     <p style="font-size: 28px;font-weight:700">{{ $user->session_hour }} hour(s)</p>
                 </div>
                 <div class="col-md">
-                    <h2 class="text-secondary" style="font-size: 18px;">Total Client(s)</h2>
+                    <h2 class="text-secondary" style="font-size: 18px;">Total Session(s)</h2>
                     <p style="font-size: 28px;font-weight:700">{{ $user->total_client }}</p>
                 </div>
                 <div class="col-md">

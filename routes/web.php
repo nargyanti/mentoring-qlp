@@ -22,6 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/guide', [PageController::class, 'guide'])->name('guide');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'settings'], function () {
     Route::get('/profile', [PageController::class, 'settingProfile'])->name('setting.profile');

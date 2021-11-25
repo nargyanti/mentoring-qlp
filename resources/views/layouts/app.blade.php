@@ -54,13 +54,17 @@
             .mentor-card .card-body {
                 display: grid;                
                 grid-template-columns: 0.5fr 1fr;                
-            }
+            }            
         }
 
-        @media screen and (min-width: 578px) {           
+        @media screen and (min-width: 577px) {           
             .mentor-card {
                 width: 250px;
                 height: 300px;
+            }
+
+            .nav-pill-kategori-title {
+                display: none;                
             }
         }
 
@@ -144,6 +148,9 @@
                         </li>    
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold" href="{{ route('mentors') }}">Mentors</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="{{ route('guide') }}">Guide</a>
                         </li>                        
                     @auth      
                         <li class="nav-item nav-item-mobile">
